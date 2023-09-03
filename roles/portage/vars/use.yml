@@ -1,0 +1,7 @@
+use:
+  - 'gui-wm/sway tray'
+  - 'gui-wm/sway wallpapers'
+  - 'net-wireless/iwd standalone'
+  - 'sys-auth/seatd builtin'
+  - 'sys-auth/seatd server'
+  - 'www-client/firefox-bin wayland'

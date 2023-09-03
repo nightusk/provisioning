@@ -1,0 +1,4 @@
+---
+- name: Include
+  ansible.builtin.include_role:
+    name: '{{ ansible_pkg_mgr }}'

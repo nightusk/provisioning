@@ -9,7 +9,7 @@ tasks:
     deps:
       - lint
     cmds:
-      - ansible-playbook -i inventory.yml playbook.yml
+      - ansible-playbook -i inventory.yml playbook.yml -K
   lint:
     cmds:
       - ansible-lint --offline playbook.yml

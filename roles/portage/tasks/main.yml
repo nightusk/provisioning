@@ -1,0 +1,25 @@
+---
+- name: Update etc
+  ansible.builtin.include_tasks:
+    file: etc.yml
+  with_items:
+    - license
+    - mask
+    - use
+  loop_control:
+    loop_var: kind
+
+- name: Install
+  ansible.builtin.package:
+    name: '{{ item }}'
+  with_items:
+    - '{{ packages }}'
+  become: true
+
+- name: Lineinfile
+  ansible.builtin.lineinfile:
+    path: '{{ role_path }}/defaults/main.yml'
+    create: true
+    line: '  - {{ item }}'
+  with_lines:
+    - sed --quiet --expression='/^>\?[[:alpha:]]/p' /var/lib/portage/world

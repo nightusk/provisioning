@@ -1,0 +1,25 @@
+---
+- name: Include_vars
+  ansible.builtin.include_vars: '{{ kind }}.yml'
+
+- name: '{{ kind }}'
+  ansible.builtin.file:
+    path: '/etc/portage/package.{{ kind }}'
+    state: directory
+  become: true
+
+- name: 'Lineinfile /etc/portage/package.{{ kind }}'
+  ansible.builtin.lineinfile:
+    path: '/etc/portage/package.{{ kind }}/default'
+    create: true
+    line: '{{ item }}'
+  with_items:
+    - '{{ lookup("vars", kind) }}'
+
+- name: Lineinfile
+  ansible.builtin.lineinfile:
+    path: '{{ role_path }}/vars/{{ kind }}.yml'
+    create: true
+    line: "  - '{{ item }}'"
+  with_lines:
+    - sed --quiet --expression='/^>\?[[:alpha:]]/p' '/etc/portage/package.{{ kind }}/default'

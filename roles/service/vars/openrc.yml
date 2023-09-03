@@ -1,0 +1,8 @@
+---
+service:
+  - chronyd
+  - cronie
+  - iwd
+  - nftables
+  - seatd
+  - sysklogd
