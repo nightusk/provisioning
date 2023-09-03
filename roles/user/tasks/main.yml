@@ -1,0 +1,17 @@
+---
+- name: Group
+  ansible.builtin.user:
+    name: '{{ ansible_env.USER }}'
+    groups: '{{ item }}'
+    append: true
+  with_items:
+    - '{{ group }}'
+
+- name: '{{ task }}'
+  ansible.builtin.include_tasks:
+    file: '{{ task }}.yml'
+  with_items:
+    - bash_profile
+    - dotfiles
+  loop_control:
+    loop_var: task
