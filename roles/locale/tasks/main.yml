@@ -1,0 +1,9 @@
+---
+- name: Timezone
+  community.general.timezone:
+    name: '{{ timezone }}'
+
+- name: Locale_gen
+  community.general.locale_gen:
+    name: '{{ item }}'
+  loop: '{{ lang }}'

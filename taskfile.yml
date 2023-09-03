@@ -1,0 +1,15 @@
+---
+version: '3'
+
+tasks:
+  default:
+    deps:
+      - play
+  play:
+    deps:
+      - lint
+    cmds:
+      - ansible-playbook -i inventory.yml playbook.yml
+  lint:
+    cmds:
+      - ansible-lint --offline playbook.yml

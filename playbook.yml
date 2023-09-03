@@ -1,0 +1,5 @@
+---
+- name: Provisioning
+  hosts: localhost
+  roles:
+    - locale
