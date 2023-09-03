@@ -1,5 +1,0 @@
----
-- name: Bash_profile
-  ansible.builtin.blockinfile:
-    path: ~/.bash_profile
-    block: '{{ bash_profile }}'

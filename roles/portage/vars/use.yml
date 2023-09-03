@@ -1,6 +1,10 @@
 use:
+  - 'app-shells/dash libedit'
+  - 'gui-wm/sway grimshot'
   - 'gui-wm/sway tray'
   - 'gui-wm/sway wallpapers'
+  - 'media-fonts/noto cjk'
+  - 'media-fonts/noto-emoji icons'
   - 'net-wireless/iwd standalone'
   - 'sys-auth/seatd builtin'
   - 'sys-auth/seatd server'

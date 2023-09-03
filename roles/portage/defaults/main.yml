@@ -6,12 +6,16 @@ packages:
   - app-editors/vim
   - app-misc/tmux
   - app-shells/bash-completion
+  - app-shells/dash
+  - app-shells/gentoo-zsh-completions
+  - app-shells/zsh
   - dev-util/ccache
   - dev-util/github-cli
   - dev-util/sccache
   - gui-apps/foot
   - gui-apps/swayidle
   - gui-apps/swaylock
+  - gui-apps/wofi
   - gui-wm/sway
   - media-fonts/noto
   - media-fonts/noto-emoji

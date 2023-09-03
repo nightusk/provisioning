@@ -3,11 +3,41 @@ group:
   - seat
   - video
 
-bash_profile: |
-  if test -z "${XDG_RUNTIME_DIR}"; then
-    export XDG_RUNTIME_DIR=/tmp/${UID}-runtime-dir
-    if ! test -d "${XDG_RUNTIME_DIR}"; then
-      mkdir "${XDG_RUNTIME_DIR}"
-      chmod 0700 "${XDG_RUNTIME_DIR}"
+bash_profile:
+  marker: '# {mark} ANSIBLE MANAGED BLOCK'
+  block: |
+    if test -z "${XDG_RUNTIME_DIR}"; then
+      export XDG_RUNTIME_DIR=/tmp/${UID}-runtime-dir
+      if ! test -d "${XDG_RUNTIME_DIR}"; then
+        mkdir "${XDG_RUNTIME_DIR}"
+        chmod 0700 "${XDG_RUNTIME_DIR}"
+      fi
     fi
-  fi
+
+vimrc:
+  marker: '" {mark} ANSIBLE MANAGED BLOCK'
+  block: |
+    set runtimepath^=$HOME/.config/vim
+    set runtimepath+=$HOME/.local/share/vim
+    set runtimepath+=$HOME/.config/vim/after
+
+    set packpath^=$HOME/.local/share/vim,$HOME/.config/vim
+    set packpath+=$HOME/config/vim/after,$HOME/.local/share/vim/after
+
+    let g:netrw_home = "$HOME"."/.local/share/vim"
+    call mkdir($HOME."/.local/share/vim/spell", 'p')
+    set viewdir=$HOME/.local/share/vim/view | call mkdir(&viewdir, 'p')
+
+    set backupdir=$HOME/.cache/vim/backup | call mkdir(&backupdir, 'p')
+    set directory=$HOME/.cache/vim/swap | call mkdir(&directory, 'p')
+    set undodir=$HOME/.cache/vim/undo | call mkdir(&undodir, 'p')
+
+    set viminfofile=$HOME/.cache/vim/viminfo
+
+    let $MYVIMRC="$HOME/.config/vim/vimrc" | source $MYVIMRC
+
+zshenv:
+  marker: '# {mark} ANSIBLE MANAGED BLOCK'
+  block: |
+    export ZDOTDIR=${HOME}/.config/zsh
+    export HISTFILE=

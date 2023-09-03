@@ -1,0 +1,3 @@
+[[plugins]]
+repo = 'powerline/powerline'
+rtp = 'powerline/bindings/vim/'

@@ -7,11 +7,17 @@
   with_items:
     - '{{ group }}'
 
-- name: '{{ task }}'
-  ansible.builtin.include_tasks:
-    file: '{{ task }}.yml'
+- name: '{{ item }}'
+  ansible.builtin.blockinfile:
+    path: '{{ ansible_env.HOME }}/.{{ item }}'
+    create: true
+    block: '{{ lookup("vars", item).block }}'
+    marker: '{{ lookup("vars", item).marker }}'
   with_items:
     - bash_profile
-    - dotfiles
-  loop_control:
-    loop_var: task
+    - vimrc
+    - zshenv
+
+- name: '{{ task }}'
+  ansible.builtin.include_tasks:
+    file: dotfiles.yml

@@ -1,0 +1,13 @@
+show=drun
+width=50
+prompt=
+matching=fuzzy
+location=1
+
+key_down=Control_L-n
+key_exit=Control_L-g
+key_expand=Control_L-i
+key_left=Control_L-b
+key_right=Control_L-f
+key_submit=Control_L-m
+key_up=Control_L-p

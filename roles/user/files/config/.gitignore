@@ -1,3 +1,14 @@
 *
 !.gitignore
-!gh
+!foot
+!foot/*
+!sway
+!sway/*
+!tmux
+!tmux/*
+!vim
+!vim/*
+!wofi
+!wofi/*
+!zsh
+!zsh/*
