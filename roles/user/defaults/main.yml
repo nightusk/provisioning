@@ -3,6 +3,13 @@ group:
   - seat
   - video
 
+env:
+  - CARGO_HOME=~/.local/share/cargo
+  - GOPATH=~/.local/share/go
+  - RUSTC_WRAPPER=/usr/bin/sccache
+  - SCCACHE_DIR=/var/cache/sccache
+  - SCCACHE_MAX_FRAME_LENGTH=104857600
+
 bash_profile:
   marker: '# {mark} ANSIBLE MANAGED BLOCK'
   block: |
@@ -13,6 +20,19 @@ bash_profile:
         chmod 0700 "${XDG_RUNTIME_DIR}"
       fi
     fi
+
+profile:
+  marker: '# {mark} ANSIBLE MANAGED BLOCK'
+  block: |
+    for p in $CARGO_HOME $GOPATH
+    do
+      case ":$PATH:" in
+      *:$p/bin:*)
+        ;;
+      *)
+        export PATH=$PATH:$p/bin
+      esac
+    done
 
 vimrc:
   marker: '" {mark} ANSIBLE MANAGED BLOCK'

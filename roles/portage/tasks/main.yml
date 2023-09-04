@@ -9,6 +9,14 @@
   loop_control:
     loop_var: kind
 
+- name: Lineinfile
+  ansible.builtin.lineinfile:
+    path: /etc/portage/make.conf
+    line: '{{ item }}'
+  with_items:
+    - '{{ env }}'
+  become: true
+
 - name: Install
   ansible.builtin.package:
     name: '{{ item }}'
@@ -20,6 +28,7 @@
   ansible.builtin.lineinfile:
     path: '{{ role_path }}/defaults/main.yml'
     line: '  - {{ item }}'
+    insertafter: 'packages:'
   with_lines:
     - >
       sed

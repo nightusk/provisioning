@@ -1,4 +1,13 @@
 ---
+env:
+  - CARGO_TARGET_X86_64_UNKNOWN_LINUX_GNU_RUSTFLAGS="-C link-arg=-fuse-ld=mold"
+  - CCACHE_DIR="/var/cache/ccache"
+  - FEATURES="ccache"
+  - LDFLAGS="${LDFLAGS} -fuse-ld=mold"
+  - RUSTC_WRAPPER=/usr/bin/sccache
+  - SCCACHE_DIR=/var/cache/sccache
+  - SCCACHE_MAX_FRAME_LENGTH=104857600
+
 packages:
   - app-admin/ansible
   - app-admin/ansible-lint
@@ -31,3 +40,24 @@ packages:
   - sys-process/cronie
   - www-client/firefox-bin
   - www-client/google-chrome
+
+license:
+  - 'sys-firmware/intel-microcode intel-ucode'
+  - 'sys-kernel/linux-firmware @BINARY-REDISTRIBUTABLE'
+  - 'www-client/google-chrome google-chrome'
+
+mask:
+  - 'dev-lang/rust'
+
+use:
+  - 'app-editors/vim python'
+  - 'app-shells/dash libedit'
+  - 'gui-wm/sway grimshot'
+  - 'gui-wm/sway tray'
+  - 'gui-wm/sway wallpapers'
+  - 'media-fonts/noto cjk'
+  - 'media-fonts/noto-emoji icons'
+  - 'net-wireless/iwd standalone'
+  - 'sys-auth/seatd builtin'
+  - 'sys-auth/seatd server'
+  - 'www-client/firefox-bin wayland'

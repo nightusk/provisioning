@@ -7,6 +7,14 @@
   with_items:
     - '{{ group }}'
 
+- name: Lineinfile
+  ansible.builtin.lineinfile:
+    path: '{{ ansible_env.HOME }}/.profile'
+    line: 'export {{ item }}'
+    insertbefore: '# BEGIN ANSIBLE MANAGED BLOCK'
+  with_items:
+    - '{{ env }}'
+
 - name: Blockinfile
   ansible.builtin.blockinfile:
     path: '{{ ansible_env.HOME }}/.{{ item }}'
@@ -18,6 +26,7 @@
     - bash_profile
     - vimrc
     - zshenv
+    - profile
 
 - name: Include
   ansible.builtin.include_tasks:
