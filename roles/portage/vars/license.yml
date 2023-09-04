@@ -1,3 +1,4 @@
+---
 license:
   - 'sys-kernel/linux-firmware @BINARY-REDISTRIBUTABLE'
   - 'sys-firmware/intel-microcode intel-ucode'

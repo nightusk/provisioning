@@ -19,5 +19,12 @@ tasks:
   check:
     run: once
     internal: true
+    deps:
+      - yamllint
     cmds:
       - ansible-playbook -i inventory.yml playbook.yml -K --check --diff
+  yamllint:
+    run: once
+    internal: true
+    cmds:
+      - yamllint .

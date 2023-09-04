@@ -1,3 +1,4 @@
+---
 use:
   - 'app-shells/dash libedit'
   - 'gui-wm/sway grimshot'

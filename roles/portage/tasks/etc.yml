@@ -23,4 +23,8 @@
     path: '{{ role_path }}/vars/{{ kind }}.yml'
     line: "  - '{{ item }}'"
   with_lines:
-    - sed --quiet --expression='/^>\?[[:alpha:]]/p' '/etc/portage/package.{{ kind }}/default'
+    - >
+      sed
+      --quiet
+      --expression='/^>\?[[:alpha:]]/p'
+      '/etc/portage/package.{{ kind }}/default'

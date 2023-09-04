@@ -21,4 +21,8 @@
     path: '{{ role_path }}/defaults/main.yml'
     line: '  - {{ item }}'
   with_lines:
-    - sed --quiet --expression='/^>\?[[:alpha:]]/p' /var/lib/portage/world
+    - >
+      sed
+      --quiet
+      --expression='/^>\?[[:alpha:]]/p'
+      /var/lib/portage/world
