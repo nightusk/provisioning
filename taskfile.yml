@@ -3,13 +3,21 @@ version: '3'
 
 tasks:
   default:
-    deps:
-      - play
+    cmds:
+      - task: play
+      - task: lint
   play:
     deps:
-      - lint
+      - check
     cmds:
       - ansible-playbook -i inventory.yml playbook.yml -K
   lint:
+    deps:
+      - check
     cmds:
-      - ansible-lint --offline playbook.yml
+      - ansible-lint --offline
+  check:
+    run: once
+    internal: true
+    cmds:
+      - ansible-playbook -i inventory.yml playbook.yml -K --check --diff

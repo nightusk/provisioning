@@ -9,3 +9,8 @@ use:
   - 'sys-auth/seatd builtin'
   - 'sys-auth/seatd server'
   - 'www-client/firefox-bin wayland'
+  - 'x11-terms/alacritty -X'
+  - 'x11-terms/alacritty wayland'
+  - 'x11-terms/kitty -X'
+  - 'x11-terms/kitty wayland'
+  - 'app-editors/vim python'

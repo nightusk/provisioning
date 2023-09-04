@@ -7,10 +7,11 @@
   with_items:
     - '{{ group }}'
 
-- name: '{{ item }}'
+- name: Blockinfile
   ansible.builtin.blockinfile:
     path: '{{ ansible_env.HOME }}/.{{ item }}'
     create: true
+    mode: '0644'
     block: '{{ lookup("vars", item).block }}'
     marker: '{{ lookup("vars", item).marker }}'
   with_items:
@@ -18,6 +19,6 @@
     - vimrc
     - zshenv
 
-- name: '{{ task }}'
+- name: Include
   ansible.builtin.include_tasks:
     file: dotfiles.yml

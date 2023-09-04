@@ -19,7 +19,6 @@
 - name: Lineinfile
   ansible.builtin.lineinfile:
     path: '{{ role_path }}/defaults/main.yml'
-    create: true
     line: '  - {{ item }}'
   with_lines:
     - sed --quiet --expression='/^>\?[[:alpha:]]/p' /var/lib/portage/world
