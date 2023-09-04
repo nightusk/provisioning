@@ -2,7 +2,7 @@
 - name: Provisioning
   hosts: localhost
   roles:
-    - locale
-    - package
-    - service
-    - user
+    - {role: locale, tags: [locale]}
+    - {role: package, tags: [package]}
+    - {role: service, tags: [service]}
+    - {role: user, tags: [user]}

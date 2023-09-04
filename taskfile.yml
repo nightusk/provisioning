@@ -4,8 +4,8 @@ version: '3'
 tasks:
   default:
     cmds:
-      - task: play
       - task: lint
+      - task: play
   play:
     deps:
       - check
