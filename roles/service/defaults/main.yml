@@ -6,3 +6,5 @@ openrc:
   - nftables
   - seatd
   - sysklogd
+
+systemd: []

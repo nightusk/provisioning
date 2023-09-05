@@ -1,0 +1,14 @@
+---
+packages:
+  - ansible
+  - ansible-lint
+  - bash
+  - chromium
+  - dash
+  - emacs
+  - fcitx5-mozc
+  - fish
+  - gh
+  - nautilus
+  - vim
+  - yamllint

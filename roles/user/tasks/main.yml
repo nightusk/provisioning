@@ -4,6 +4,7 @@
     name: '{{ ansible_env.USER }}'
     groups: '{{ item }}'
     append: true
+  ignore_errors: true
   with_items:
     - '{{ group }}'
 

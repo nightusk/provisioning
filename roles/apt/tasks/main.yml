@@ -1,0 +1,15 @@
+---
+- name: Install
+  ansible.builtin.package:
+    name: '{{ item }}'
+  with_items:
+    - '{{ packages }}'
+  become: true
+
+- name: Lineinfile
+  ansible.builtin.lineinfile:
+    path: '{{ role_path }}/defaults/main.yml'
+    line: '  - {{ item }}'
+    insertafter: 'packages:'
+  with_lines:
+    - apt-mark showmanual
