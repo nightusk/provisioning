@@ -30,7 +30,7 @@ profile:
       *:$p/bin:*)
         ;;
       *)
-        export PATH=$PATH:$p/bin
+        export PATH=$p/bin:$PATH
       esac
     done
 

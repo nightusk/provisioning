@@ -1,0 +1,22 @@
+# Configuration for Alacritty, the GPU enhanced terminal emulator.
+
+window:
+  # Allow terminal applications to change Alacritty's window title.
+  dynamic_title: false
+
+# Shell
+#
+# You can set `shell.program` to the path of your favorite shell, e.g.
+# `/bin/fish`. Entries in `shell.args` are passed unmodified as arguments to the
+# shell.
+#
+# Default:
+#   - (macOS) /bin/bash --login
+#   - (Linux/BSD) user login shell
+#   - (Windows) powershell
+shell:
+  program: /bin/dash
+  args:
+    - -l
+    - -c
+    - "zellij attach --create"

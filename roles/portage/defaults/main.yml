@@ -15,9 +15,13 @@ packages:
   - app-admin/sysklogd
   - app-editors/vim
   - app-misc/tmux
+  - app-misc/zellij
   - app-shells/bash-completion
   - app-shells/dash
+  - app-shells/fish
   - app-shells/gentoo-zsh-completions
+  - app-shells/nushell
+  - app-shells/starship
   - app-shells/zsh
   - dev-util/ccache
   - dev-util/github-cli
@@ -40,6 +44,8 @@ packages:
   - sys-process/cronie
   - www-client/firefox-bin
   - www-client/google-chrome
+  - x11-terms/alacritty
+  - x11-terms/kitty
 
 license:
   - 'sys-firmware/intel-microcode intel-ucode'
@@ -61,3 +67,7 @@ use:
   - 'sys-auth/seatd builtin'
   - 'sys-auth/seatd server'
   - 'www-client/firefox-bin wayland'
+  - 'x11-terms/alacritty -X'
+  - 'x11-terms/alacritty wayland'
+  - 'x11-terms/kitty -X'
+  - 'x11-terms/kitty wayland'

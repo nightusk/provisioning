@@ -1,7 +1,15 @@
 *
 !.gitignore
+!alacritty
+!alacritty/*
+!fish
+!fish/*
 !foot
 !foot/*
+!kitty
+!kitty/*
+!nushell
+!nushell/*
 !sway
 !sway/*
 !tmux
@@ -10,5 +18,7 @@
 !vim/*
 !wofi
 !wofi/*
+!zellij
+!zellij/*
 !zsh
 !zsh/*
