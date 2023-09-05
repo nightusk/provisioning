@@ -1,11 +1,8 @@
 ---
-- name: Include_vars
-  ansible.builtin.include_vars: '{{ ansible_service_mgr }}.yml'
-
 - name: Service
   ansible.builtin.service:
     enabled: true
     name: '{{ item }}'
   with_items:
-    - '{{ service }}'
+    - '{{ lookup("vars", ansible_service_mgr) }}'
   become: true
