@@ -1,12 +1,7 @@
 ---
-- name: Group
-  ansible.builtin.user:
-    name: '{{ ansible_env.USER }}'
-    groups: '{{ item }}'
-    append: true
-  ignore_errors: true
-  with_items:
-    - '{{ group }}'
+- name: Include_task
+  ansible.builtin.include_tasks:
+    file: group.yml
 
 - name: Lineinfile
   ansible.builtin.lineinfile:

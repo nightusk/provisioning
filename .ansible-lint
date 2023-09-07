@@ -1,0 +1,8 @@
+---
+exclude_paths:
+  - roles/user/files/config
+
+enable_list:
+  - yaml
+
+offline: true

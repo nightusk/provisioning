@@ -6,3 +6,9 @@
   with_items:
     - '{{ lookup("vars", ansible_service_mgr) }}'
   become: true
+
+- name: Group
+  ansible.builtin.include_role:
+    name: user
+    tasks_from: group
+    defaults_from: '{{ ansible_service_mgr }}.yml'

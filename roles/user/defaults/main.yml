@@ -1,7 +1,5 @@
 ---
-group:
-  - seat
-  - video
+group: []
 
 env:
   - CARGO_HOME=~/.local/share/cargo

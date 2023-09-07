@@ -15,7 +15,7 @@ tasks:
     deps:
       - check
     cmds:
-      - ansible-lint --offline
+      - ansible-lint
   check:
     run: once
     internal: true

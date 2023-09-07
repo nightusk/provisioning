@@ -1,0 +1,8 @@
+---
+- name: Group
+  ansible.builtin.user:
+    name: '{{ ansible_env.USER }}'
+    groups: '{{ item }}'
+    append: true
+  with_items:
+    - '{{ group }}'
