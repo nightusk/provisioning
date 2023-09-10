@@ -13,7 +13,10 @@ packages:
   - app-admin/ansible-lint
   - app-admin/sudo
   - app-admin/sysklogd
+  - app-editors/helix
+  - app-editors/neovim
   - app-editors/vim
+  - app-i18n/skk-jisyo
   - app-misc/tmux
   - app-misc/zellij
   - app-shells/bash-completion
@@ -36,6 +39,7 @@ packages:
   - net-firewall/nftables
   - net-misc/chrony
   - net-wireless/iwd
+  - sys-apps/ripgrep
   - sys-boot/grub
   - sys-devel/mold
   - sys-firmware/intel-microcode

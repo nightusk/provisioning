@@ -6,10 +6,15 @@
 !fish/*
 !foot
 !foot/*
+!git
+!helix
+!helix/*
 !kitty
 !kitty/*
 !nushell
 !nushell/*
+!nvim
+!nvim/*
 !sway
 !sway/*
 !tmux

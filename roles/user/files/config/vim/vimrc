@@ -1,3 +1,5 @@
+source $VIMRUNTIME/defaults.vim
+
 " 2 moving around, searching and patterns
 set incsearch
 set ignorecase
@@ -6,18 +8,26 @@ set smartcase
 set scrolloff=5
 set nowrap
 set list
+set listchars+=tab:>\ 
+set listchars+=trail:-
+set listchars+=nbsp:+
 " 5 syntax, highlighting and spelling
 set background=dark
 set cursorline
 " 6 multiple windows
 set laststatus=2
 set hidden
+"11 messages and info
+set showcmd
 "13 editing text
 set undofile
 "18 reading and writing files
 set autoread
 "20 command line editing
+set wildmode=list:longest,full
 set wildmenu
+
+let mapleader="\<space>"
 
 let $DATA = expand('~/.local/share')
 if !($DATA->isdirectory())
