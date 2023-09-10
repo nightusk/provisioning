@@ -25,5 +25,5 @@
     - >
       sed
       --quiet
-      --expression='/^>\?[[:alpha:]]/p'
+      --expression='/^[=>]\?[[:alpha:]]/p'
       '/etc/portage/package.{{ kind }}/default'
