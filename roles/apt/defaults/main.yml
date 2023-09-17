@@ -2,13 +2,44 @@
 packages:
   - ansible
   - ansible-lint
+  - base-files
+  - base-passwd
   - bash
+  - bsdutils
   - chromium
+  - coreutils
+  - cpio
   - dash
-  - emacs
-  - fcitx5-mozc
-  - fish
+  - debianutils
+  - diffutils
+  - e2fsprogs
+  - findutils
   - gh
-  - nautilus
+  - grep
+  - gzip
+  - hostname
+  - ifupdown
+  - init
+  - iproute2
+  - iputils-ping
+  - isc-dhcp-client
+  - less
+  - locales
+  - logsave
+  - lsb-base
+  - mawk
+  - ncurses-base
+  - ncurses-bin
+  - net-tools
+  - netbase
+  - openssh-client
+  - procps
+  - python3
+  - python3-apt
+  - sed
+  - sudo
+  - sysvinit-utils
+  - tzdata
   - vim
+  - whiptail
   - yamllint

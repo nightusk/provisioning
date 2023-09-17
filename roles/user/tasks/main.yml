@@ -32,8 +32,24 @@
     option: path
     value: .config/git/config
 
-- name: Config
+- name: EnsureDir
   ansible.builtin.file:
-    dest: '{{ ansible_env.HOME }}/.config'
-    src: '{{ role_path }}/files/config'
+    path: '{{ ansible_env.HOME }}/.config'
+    state: directory
+
+- name: Link Config
+  ansible.builtin.file:
+    dest: '{{ ansible_env.HOME }}/.config/{{ item }}'
+    src: '{{ role_path }}/files/config/{{ item }}'
     state: link
+  with_items:
+    - '{{ config }}'
+
+- name: Update config
+  ansible.builtin.lineinfile:
+    path: '{{ role_path }}/defaults/main.yml'
+    line: '  - {{ item }}'
+    insertafter: 'config:'
+  with_lines:
+    - ls --almost-all '{{ ansible_env.HOME }}/.config'
+    - ls --almost-all '{{ role_path }}/files/config'

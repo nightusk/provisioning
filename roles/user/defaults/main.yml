@@ -62,3 +62,20 @@ zshenv:
   block: |
     export ZDOTDIR=${HOME}/.config/zsh
     export HISTFILE=
+
+config:
+  - alacritty
+  - emacs
+  - fish
+  - foot
+  - git
+  - helix
+  - kitty
+  - nushell
+  - nvim
+  - sway
+  - tmux
+  - vim
+  - wofi
+  - zellij
+  - zsh

@@ -12,4 +12,6 @@
     line: '  - {{ item }}'
     insertafter: 'packages:'
   with_lines:
-    - apt-mark showmanual
+    - >
+      apt-mark showmanual
+      | sed --expression "/^\(cros\|gcc\)-/d;/^lib/d"
