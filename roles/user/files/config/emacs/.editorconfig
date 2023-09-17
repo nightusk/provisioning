@@ -1,0 +1,4 @@
+[*.el]
+indent_style = space
+[*.org]
+indent_style = space

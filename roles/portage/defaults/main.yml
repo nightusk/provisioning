@@ -13,6 +13,7 @@ packages:
   - app-admin/ansible-lint
   - app-admin/sudo
   - app-admin/sysklogd
+  - app-editors/emacs
   - app-editors/helix
   - app-editors/neovim
   - app-editors/vim
@@ -27,6 +28,7 @@ packages:
   - app-shells/starship
   - app-shells/zsh
   - dev-util/ccache
+  - dev-util/git-delta
   - dev-util/github-cli
   - dev-util/sccache
   - gui-apps/foot
@@ -52,6 +54,7 @@ packages:
   - x11-terms/kitty
 
 accept_keywords:
+  - '=app-editors/emacs-29.1-r1 ~amd64'
   - '=app-editors/helix-23.05 ~amd64'
   - '=app-misc/zellij-0.37.2 ~amd64'
   - '=app-shells/nushell-0.83.1 ~amd64'
@@ -72,6 +75,11 @@ mask:
   - 'dev-lang/rust'
 
 use:
+  - 'app-editors/emacs -X'
+  - 'app-editors/emacs gtk'
+  - 'app-editors/emacs gui'
+  - 'app-editors/emacs sqlite'
+  - 'app-editors/emacs treesitter'
   - 'app-editors/vim python'
   - 'app-shells/dash libedit'
   - 'gui-wm/sway grimshot'

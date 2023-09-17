@@ -1,11 +1,17 @@
-[merge]
-	tool = vimdiff
-	conflictstyle = diff3
-[mergetool]
-	prompt = false
 [core]
 	editor = vim
+	pager = delta
 [diff]
+	colorMoved = default
+	light = false
+	navigate = true
 	tool = vimdiff
 [difftool]
+	prompt = false
+[interactive]
+	diffFilter = delta --color-only
+[merge]
+	conflictstyle = diff3
+	tool = vimdiff
+[mergetool]
 	prompt = false

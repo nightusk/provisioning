@@ -1,0 +1,185 @@
+#+STARTUP: content
+* init.el
+:PROPERTIES:
+:header-args: :results silent :tangle yes
+:END:
+** essentials
+#+begin_src emacs-lisp
+  ;; -*- lexical-binding: t -*-
+  (defalias 'yes-or-no-p 'y-or-n-p)
+  (define-key key-translation-map [?\C-h] [?\C-?])
+#+end_src
+** package-manager
+*** install straight.el
+#+begin_src emacs-lisp
+  (defvar bootstrap-version)
+  (let ((bootstrap-file
+         (expand-file-name
+          "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+        (bootstrap-version 6))
+    (unless (file-exists-p bootstrap-file)
+      (with-current-buffer
+          (url-retrieve-synchronously
+           "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
+           'silent 'inhibit-cokkies)
+        (goto-char (point-max))
+        (eval-print-last-sexp)))
+    (load bootstrap-file nil 'nomessage))
+#+end_src
+*** install use-package
+#+begin_src emacs-lisp
+(straight-use-package 'use-package)
+#+end_src
+** builtin packages
+*** autorevert
+#+begin_src emacs-lisp
+  (use-package autorevert
+    :config
+    (global-auto-revert-mode +1))
+#+end_src
+*** custom
+#+begin_src emacs-lisp
+  (use-package custom
+    :config
+    (when (>= emacs-major-version 28)
+      (load-theme (if window-system 'modus-operandi 'modus-vivendi))))
+#+end_src
+*** eglot
+#+begin_src emacs-lisp
+  (use-package eglot
+    :if (>= emacs-major-version 29))
+#+end_src
+*** elec-pair
+#+begin_src emacs-lisp
+  (use-package elec-pair
+    :config
+    (electric-pair-mode +1))
+#+end_src
+*** icomplete
+#+begin_src emacs-lisp
+  (use-package icomplete
+    :if (>= emacs-major-version 28)
+    :config
+    (fido-vertical-mode +1))
+#+end_src
+*** menu-bar
+#+begin_src emacs-lisp
+  (use-package menu-bar
+    :config
+    (menu-bar-mode -1))
+#+end_src
+*** mule
+#+begin_src emacs-lisp
+  (use-package mule
+    :custom
+    (default-input-method "japanese-skk"))
+#+end_src
+*** org
+#+begin_src emacs-lisp
+  (use-package org
+    :custom
+    (org-confirm-babel-evaluate nil)
+    (org-hide-leading-stars t)
+    :config
+    (org-babel-do-load-languages 'org-babel-load-languages
+                                 '((emacs-lisp . t))))
+#+end_src
+*** paren
+#+begin_src emacs-lisp
+  (use-package paren
+    :config
+    (show-paren-mode +1))
+#+end_src
+*** savehist
+#+begin_src emacs-lisp
+  (use-package savehist
+    :config
+    (savehist-mode +1))
+#+end_src
+*** scroll-bar
+#+begin_src emacs-lisp
+  (use-package scroll-bar
+    :config
+    (scroll-bar-mode -1))
+#+end_src
+*** simple
+#+begin_src emacs-lisp
+  (use-package simple
+    :config
+    (column-number-mode +1))
+#+end_src
+*** tool-bar-mode
+#+begin_src emacs-lisp
+  (use-package tool-bar
+    :config
+    (tool-bar-mode -1))
+#+end_src
+*** whitespace
+#+begin_src emacs-lisp
+  (use-package whitespace
+    :config
+    (global-whitespace-mode +1))
+#+end_src
+** elpa
+*** affe
+#+begin_src emacs-lisp
+  (use-package affe :straight t
+    :bind
+    ("M-s d" . affe-find)
+    ("M-s g" . affe-grep))
+#+end_src
+*** consult
+#+begin_src emacs-lisp
+  (use-package consult :straight t
+    :bind
+    ("C-x b" . consult-buffer)
+    ("M-g i" . consult-imenu)
+    ("M-g o" . consult-outline))
+#+end_src
+*** corfu
+#+begin_src emacs-lisp
+  (use-package corfu :straight t
+    :custom
+    (corfu-auto t)
+    :config
+    (global-corfu-mode +1))
+#+end_src
+*** ddskk
+#+begin_src emacs-lisp
+  (use-package ddskk :straight t)
+#+end_src
+*** diff-hl
+#+begin_src emacs-lisp
+  (use-package diff-hl :straight t
+    :config
+    (global-diff-hl-mode +1))
+#+end_src
+*** editorconfig
+#+begin_src emacs-lisp
+  (use-package editorconfig :straight t
+    :config
+    (editorconfig-mode +1))
+#+end_src
+*** marginalia
+#+begin_src emacs-lisp
+  (use-package marginalia :straight t
+    :config
+    (marginalia-mode +1))
+#+end_src
+*** smartparens
+#+begin_src emacs-lisp
+  (use-package smartparens :straight t
+    :config
+    (require 'smartparens-config)
+    (smartparens-global-strict-mode +1))
+#+end_src
+*** which-key
+#+begin_src emacs-lisp
+  (use-package which-key :straight t
+    :config
+    (which-key-mode +1))
+#+end_src
+* COMMENT Local Variables
+Local Variables:
+indent-tabs-mode: nil
+End:
