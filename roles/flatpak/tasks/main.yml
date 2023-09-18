@@ -1,0 +1,22 @@
+---
+- name: Flathub
+  community.general.flatpak_remote:
+    name: flathub
+    flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+    method: user
+
+- name: Flatpak
+  community.general.flatpak:
+    name: '{{ item }}'
+    remote: flathub
+    method: user
+  with_items:
+    - '{{ packages }}'
+
+- name: Lineinfile
+  ansible.builtin.lineinfile:
+    path: '{{ role_path }}/defaults/main.yml'
+    line: '  - {{ item }}'
+    insertafter: 'packages:'
+  with_lines:
+    - 'flatpak list --app | cut -f 2'

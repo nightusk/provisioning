@@ -4,6 +4,10 @@ packages:
   - ansible-lint
   - build-essential
   - emacs
+  - flatpak
+  - fuse
   - gh
-  - neovim-qt
+  - libsquashfuse0
+  - snapd
+  - squashfuse
   - yamllint

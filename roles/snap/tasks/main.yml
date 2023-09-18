@@ -1,0 +1,15 @@
+---
+- name: Snap --classic
+  community.general.snap:
+    name: '{{ item }}'
+    classic: true
+  with_items:
+    - '{{ classic }}'
+
+- name: Lineinfile --classic
+  ansible.builtin.lineinfile:
+    path: '{{ role_path }}/defaults/main.yml'
+    line: '  - {{ item }}'
+    insertafter: 'classic:'
+  with_lines:
+    - 'snap list | grep classic | cut -f 1 -d " "'

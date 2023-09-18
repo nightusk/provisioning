@@ -34,8 +34,8 @@ lsb-base
 mawk
 ncurses-base
 ncurses-bin
-net-tools
 netbase
+net-tools
 openssh-client
 procps
 python3

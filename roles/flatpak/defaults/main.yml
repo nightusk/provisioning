@@ -1,0 +1,4 @@
+---
+packages:
+  - com.dropbox.Client
+  - md.obsidian.Obsidian
