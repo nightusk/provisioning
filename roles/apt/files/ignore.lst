@@ -28,13 +28,14 @@ libext2fs2
 libpcre3
 libss2
 locales
+login
 logsave
 lsb-base
 mawk
 ncurses-base
 ncurses-bin
-netbase
 net-tools
+netbase
 openssh-client
 procps
 python3
@@ -43,5 +44,8 @@ sed
 sudo
 sysvinit-utils
 tzdata
+ubuntu-minimal
+ubuntu-standard
+ubuntu-wsl
 vim
 whiptail
