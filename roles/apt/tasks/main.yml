@@ -12,7 +12,7 @@
     line: '  - {{ item }}'
     insertafter: 'packages:'
   with_lines:
-    - 'bash -c "comm -23 <(apt-mark showmanual | sort) {{ role_path }}/files/ignore.lst"'
+    - 'bash -c "comm -23 <(apt-mark showmanual | sort) <(cat {{ role_path }}/files/ignore.lst | sort)"'
 
 - name: Flatpak
   ansible.builtin.include_role:
