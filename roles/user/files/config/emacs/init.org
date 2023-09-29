@@ -28,7 +28,8 @@
 #+end_src
 *** install use-package
 #+begin_src emacs-lisp
-(straight-use-package 'use-package)
+  (straight-use-package 'use-package)
+  (use-package use-package)
 #+end_src
 ** builtin packages
 *** autorevert
@@ -43,10 +44,14 @@
     :config
     (when (>= emacs-major-version 28)
       (load-theme (if window-system 'modus-operandi 'modus-vivendi))))
+  (use-package modus-themes :straight t
+    :if (< emacs-major-version 28)
+    :config
+    (if window-system 'modus-operandi 'modus-vivendi))
 #+end_src
 *** eglot
 #+begin_src emacs-lisp
-  (use-package eglot
+  (use-package eglot :straight t
     :if (>= emacs-major-version 29))
 #+end_src
 *** elec-pair
@@ -61,6 +66,10 @@
     :if (>= emacs-major-version 28)
     :config
     (fido-vertical-mode +1))
+  (use-package vertico :straight t
+    :if (< emacs-major-version 28)
+    :config
+    (vertico-mode +1))
 #+end_src
 *** menu-bar
 #+begin_src emacs-lisp
