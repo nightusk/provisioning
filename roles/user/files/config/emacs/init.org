@@ -3,15 +3,10 @@
 :PROPERTIES:
 :header-args: :results silent :tangle yes
 :END:
-** essentials
-#+begin_src emacs-lisp
-  ;; -*- lexical-binding: t -*-
-  (defalias 'yes-or-no-p 'y-or-n-p)
-  (define-key key-translation-map [?\C-h] [?\C-?])
-#+end_src
 ** package-manager
 *** install straight.el
 #+begin_src emacs-lisp
+  ;; -*- lexical-binding: t -*-
   (defvar bootstrap-version)
   (let ((bootstrap-file
          (expand-file-name
@@ -38,6 +33,13 @@
     :config
     (global-auto-revert-mode +1))
 #+end_src
+*** cus-start
+#+BEGIN_SRC emacs-lisp
+  (use-package cus-start
+    :config
+    (defalias 'yes-or-no-p 'y-or-n-p)
+    (define-key key-translation-map [?\C-h] [?\C-?]))
+#+END_SRC
 *** custom
 #+begin_src emacs-lisp
   (use-package custom
