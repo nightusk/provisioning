@@ -36,6 +36,10 @@
 *** cus-start
 #+BEGIN_SRC emacs-lisp
   (use-package cus-start
+    :custom
+    (menu-bar-mode nil)
+    (scroll-bar-mode nil)
+    (tool-bar-mode nil)
     :config
     (defalias 'yes-or-no-p 'y-or-n-p)
     (define-key key-translation-map [?\C-h] [?\C-?]))
@@ -73,12 +77,6 @@
     :config
     (vertico-mode +1))
 #+end_src
-*** menu-bar
-#+begin_src emacs-lisp
-  (use-package menu-bar
-    :config
-    (menu-bar-mode -1))
-#+end_src
 *** mule
 #+begin_src emacs-lisp
   (use-package mule
@@ -107,23 +105,11 @@
     :config
     (savehist-mode +1))
 #+end_src
-*** scroll-bar
-#+begin_src emacs-lisp
-  (use-package scroll-bar
-    :config
-    (scroll-bar-mode -1))
-#+end_src
 *** simple
 #+begin_src emacs-lisp
   (use-package simple
     :config
     (column-number-mode +1))
-#+end_src
-*** tool-bar-mode
-#+begin_src emacs-lisp
-  (use-package tool-bar
-    :config
-    (tool-bar-mode -1))
 #+end_src
 *** whitespace
 #+begin_src emacs-lisp
