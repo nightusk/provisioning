@@ -14,6 +14,10 @@ bash_profile:
     if [[ -f ~/.profile ]] ; then
       source ~/.profile
     fi
+
+profile:
+  marker: '# {mark} ANSIBLE MANAGED BLOCK'
+  block: |
     if test -z "${XDG_RUNTIME_DIR}"; then
       export XDG_RUNTIME_DIR=/tmp/${UID}-runtime-dir
       if ! test -d "${XDG_RUNTIME_DIR}"; then
@@ -21,10 +25,6 @@ bash_profile:
         chmod 0700 "${XDG_RUNTIME_DIR}"
       fi
     fi
-
-profile:
-  marker: '# {mark} ANSIBLE MANAGED BLOCK'
-  block: |
     for p in $CARGO_HOME $GOPATH
     do
       case ":$PATH:" in

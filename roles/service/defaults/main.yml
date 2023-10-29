@@ -2,6 +2,7 @@
 openrc:
   - chronyd
   - cronie
+  - display-manager
   - iwd
   - nftables
   - seatd

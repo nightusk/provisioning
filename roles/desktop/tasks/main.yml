@@ -1,0 +1,21 @@
+---
+- name: display-manager
+  ansible.builtin.lineinfile:
+    path: /etc/conf.d/display-manager
+    line: '{{ item }}'
+  with_items:
+    - 'CHECKVT=7'
+    - 'DISPLAYMANAGER="greetd"'
+  become: true
+
+- name: greetd
+  community.general.ini_file:
+    path: '/etc/greetd/config.toml'
+    section: '{{ item.section }}'
+    option: '{{ item.option }}'
+    value: '{{ item.value }}'
+  with_items:
+    - { section: terminal, option: vt, value: 7 }
+    - { section: default_session, option: command, value: '"tuigreet --cmd sway"' }
+    - { section: default_session, option: user, value: '"greetd"' }
+  become: true

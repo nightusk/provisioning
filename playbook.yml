@@ -5,4 +5,5 @@
     - {role: locale, tags: [locale]}
     - {role: package, tags: [package]}
     - {role: service, tags: [service]}
+    - {role: desktop, tags: [desktop]}
     - {role: user, tags: [user]}
