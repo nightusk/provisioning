@@ -4,6 +4,7 @@
     file: etc.yml
   with_items:
     - accept_keywords
+    - env
     - license
     - mask
     - use
@@ -15,7 +16,13 @@
     path: /etc/portage/make.conf
     line: '{{ item }}'
   with_items:
-    - '{{ env }}'
+    - '{{ envvar }}'
+  become: true
+
+- name: Lineinfile
+  ansible.builtin.lineinfile:
+    path: /etc/portage/env/no-mold.conf
+    line: 'LDFLAGS="-Wl,-O1 -Wl,--as-needed"'
   become: true
 
 - name: Install
