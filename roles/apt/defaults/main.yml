@@ -4,10 +4,19 @@ packages:
   - ansible-lint
   - build-essential
   - emacs
+  - fish
   - flatpak
+  - foot
   - fuse
   - gh
+  - kitty
   - libsquashfuse0
+  - nautilus
+  - powerline
+  - python-is-python3
+  - ripgrep
   - snapd
   - squashfuse
+  - tmux
   - yamllint
+  - zsh

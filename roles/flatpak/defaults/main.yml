@@ -2,3 +2,5 @@
 packages:
   - com.dropbox.Client
   - md.obsidian.Obsidian
+  - org.fcitx.Fcitx5
+  - org.mozilla.firefox
