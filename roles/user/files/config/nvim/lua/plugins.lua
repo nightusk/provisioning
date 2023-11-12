@@ -46,10 +46,12 @@ return {
       require('gitsigns').setup()
     end
   }, -- }}}
+  { "mattn/emmet-vim" },
   { "neovim/nvim-lspconfig", -- {{{
     config = function()
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
       local lspconfig = require('lspconfig')
+      lspconfig.denols.setup{}
     end
   }, -- }}}
 

@@ -160,6 +160,17 @@ on_event = [
 ]
 
 [[plugins]]
+repo = 'mattn/emmet-vim'
+on_ft = [
+  'html',
+  'css',
+]
+hook_add =  '''
+  "let g:user_emmet_install_global = 0
+  "autocmd FileType html,css EmmetInstall
+'''
+
+[[plugins]]
 repo = 'powerline/powerline'
 rtp = 'powerline/bindings/vim/'
 
@@ -171,6 +182,9 @@ on_event = [
 
 [[plugins]]
 repo = 'vim-denops/denops.vim'
+on_event = [
+  'VimEnter',
+]
 
 [[plugins]]
 repo = 'vim-skk/skkeleton'

@@ -38,6 +38,9 @@ profile:
 vimrc:
   marker: '" {mark} ANSIBLE MANAGED BLOCK'
   block: |
+    syntax enable
+    filetype plugin indent on
+
     set runtimepath^=$HOME/.config/vim
     set runtimepath+=$HOME/.local/share/vim
     set runtimepath+=$HOME/.config/vim/after
