@@ -4,7 +4,7 @@
     enabled: true
     name: '{{ item }}'
   with_items:
-    - '{{ lookup("vars", ansible_service_mgr) }}'
+    - '{{ lookup("vars", "service_" + ansible_service_mgr) }}'
   become: true
 
 - name: Group

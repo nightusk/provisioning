@@ -1,5 +1,5 @@
 ---
-openrc:
+service_openrc:
   - chronyd
   - cronie
   - display-manager
@@ -8,4 +8,4 @@ openrc:
   - seatd
   - sysklogd
 
-systemd: []
+service_systemd: []
