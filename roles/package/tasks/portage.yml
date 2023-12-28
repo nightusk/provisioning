@@ -1,25 +1,21 @@
 ---
 - name: Update etc
   ansible.builtin.include_tasks:
-    file: etc.yml
+    file: portage_etc.yml
   with_items:
-    - accept_keywords
-    - env
-    - license
-    - mask
-    - use
+    - '{{ package_etc_files }}'
   loop_control:
     loop_var: kind
 
-- name: Lineinfile
+- name: Make.conf
   ansible.builtin.lineinfile:
     path: /etc/portage/make.conf
     line: '{{ item }}'
   with_items:
-    - '{{ envvar }}'
+    - '{{ package_make_conf }}'
   become: true
 
-- name: Lineinfile
+- name: Env/no-mold.conf
   ansible.builtin.lineinfile:
     path: /etc/portage/env/no-mold.conf
     line: 'LDFLAGS="-Wl,-O1 -Wl,--as-needed"'
@@ -29,14 +25,14 @@
   ansible.builtin.package:
     name: '{{ item }}'
   with_items:
-    - '{{ packages }}'
+    - '{{ package_list }}'
   become: true
 
-- name: Lineinfile
+- name: Update defaults
   ansible.builtin.lineinfile:
-    path: '{{ role_path }}/defaults/main.yml'
+    path: '{{ role_path }}/defaults/portage.yml'
     line: '  - {{ item }}'
-    insertafter: 'packages:'
+    insertafter: 'package_list:'
   with_lines:
     - >
       sed

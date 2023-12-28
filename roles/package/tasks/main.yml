@@ -1,4 +1,6 @@
 ---
 - name: Include
   ansible.builtin.include_role:
-    name: '{{ ansible_pkg_mgr }}'
+    name: '{{ role_name }}'
+    tasks_from: '{{ ansible_pkg_mgr }}'
+    defaults_from: '{{ ansible_pkg_mgr }}'

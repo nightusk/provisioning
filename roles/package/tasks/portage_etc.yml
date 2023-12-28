@@ -1,5 +1,5 @@
 ---
-- name: '{{ kind }}'
+- name: 'Ensure /etc/portage/package.{{ kind }}'
   ansible.builtin.file:
     path: '/etc/portage/package.{{ kind }}'
     mode: '0755'
@@ -13,14 +13,14 @@
     mode: '0644'
     line: '{{ item }}'
   with_items:
-    - '{{ lookup("vars", kind) }}'
+    - '{{ lookup("vars", "package_" + kind) }}'
   become: true
 
-- name: Lineinfile
+- name: Update defaults
   ansible.builtin.lineinfile:
-    path: '{{ role_path }}/defaults/main.yml'
+    path: '{{ role_path }}/defaults/portage.yml'
     line: "  - '{{ item }}'"
-    insertafter: '{{ kind }}:'
+    insertafter: 'package_{{ kind }}:'
   with_lines:
     - >
       sed
