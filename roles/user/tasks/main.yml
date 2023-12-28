@@ -3,26 +3,26 @@
   ansible.builtin.include_tasks:
     file: group.yml
 
-- name: Lineinfile
+- name: Update env
   ansible.builtin.lineinfile:
     path: '{{ ansible_env.HOME }}/.profile'
     line: 'export {{ item }}'
     insertbefore: '# BEGIN ANSIBLE MANAGED BLOCK'
   with_items:
-    - '{{ env }}'
+    - '{{ user_env }}'
 
 - name: Blockinfile
   ansible.builtin.blockinfile:
     path: '{{ ansible_env.HOME }}/.{{ item }}'
     create: true
     mode: '0644'
-    block: '{{ lookup("vars", item).block }}'
-    marker: '{{ lookup("vars", item).marker }}'
+    block: '{{ lookup("vars", "user_" + item).block }}'
+    marker: '{{ lookup("vars", "user_" + item).marker }}'
   with_items:
     - bash_profile
+    - profile
     - vimrc
     - zshenv
-    - profile
 
 - name: Gitconfig
   community.general.ini_file:
@@ -32,9 +32,10 @@
     option: path
     value: .config/git/config
 
-- name: EnsureDir
+- name: Ensure $HOME/.config
   ansible.builtin.file:
     path: '{{ ansible_env.HOME }}/.config'
+    mode: '0755'
     state: directory
 
 - name: Link Config
@@ -43,13 +44,13 @@
     src: '{{ role_path }}/files/config/{{ item }}'
     state: link
   with_items:
-    - '{{ config }}'
+    - '{{ user_config }}'
 
 - name: Update config
   ansible.builtin.lineinfile:
     path: '{{ role_path }}/defaults/main.yml'
     line: '  - {{ item }}'
-    insertafter: 'config:'
+    insertafter: 'user_config:'
   with_lines:
     - ls --almost-all '{{ ansible_env.HOME }}/.config'
     - ls --almost-all '{{ role_path }}/files/config'

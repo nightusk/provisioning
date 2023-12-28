@@ -5,4 +5,4 @@
     groups: '{{ item }}'
     append: true
   with_items:
-    - '{{ group }}'
+    - '{{ user_group }}'

@@ -1,21 +1,21 @@
 ---
-group: []
+user_group: []
 
-env:
-  - CARGO_HOME=~/.local/share/cargo
-  - GOPATH=~/.local/share/go
+user_env:
+  - CARGO_HOME=$HOME/.local/share/cargo
+  - GOPATH=$HOME/.local/share/go
   - RUSTC_WRAPPER=/usr/bin/sccache
   - SCCACHE_DIR=/var/cache/sccache
   - SCCACHE_MAX_FRAME_LENGTH=104857600
 
-bash_profile:
+user_bash_profile:
   marker: '# {mark} ANSIBLE MANAGED BLOCK'
   block: |
     if [[ -f ~/.profile ]] ; then
       source ~/.profile
     fi
 
-profile:
+user_profile:
   marker: '# {mark} ANSIBLE MANAGED BLOCK'
   block: |
     if test -z "${XDG_RUNTIME_DIR}"; then
@@ -35,7 +35,7 @@ profile:
       esac
     done
 
-vimrc:
+user_vimrc:
   marker: '" {mark} ANSIBLE MANAGED BLOCK'
   block: |
     syntax enable
@@ -60,13 +60,13 @@ vimrc:
 
     let $MYVIMRC="$HOME/.config/vim/vimrc" | source $MYVIMRC
 
-zshenv:
+user_zshenv:
   marker: '# {mark} ANSIBLE MANAGED BLOCK'
   block: |
     export ZDOTDIR=${HOME}/.config/zsh
     export HISTFILE=
 
-config:
+user_config:
   - alacritty
   - emacs
   - fish
