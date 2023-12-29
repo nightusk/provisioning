@@ -1,0 +1,9 @@
+---
+- name: Link Config
+  ansible.builtin.file:
+    dest: '{{ ansible_env.HOME }}/.config/{{ item }}'
+    src: '{{ role_path }}/files/config/{{ item }}'
+    state: '{{ user_config_state }}'
+    mode: '0755'
+  with_items:
+    - '{{ user_config }}'

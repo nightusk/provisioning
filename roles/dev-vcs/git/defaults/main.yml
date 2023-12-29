@@ -1,0 +1,12 @@
+---
+git_packages:
+  - git-delta
+  - github-cli
+git_make_conf: []
+git_package_accept_keywords: []
+git_package_env: []
+git_package_license: []
+git_package_mask: []
+git_package_use: []
+git_package_state: present
+git_config_state: link

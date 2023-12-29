@@ -1,0 +1,11 @@
+---
+git_packages:
+  - dev-util/git-delta
+  - dev-util/github-cli
+git_make_conf: []
+git_package_accept_keywords:
+  - '=dev-util/github-cli-2.32.1 ~amd64'
+git_package_env: []
+git_package_license: []
+git_package_mask: []
+git_package_use: []

@@ -66,12 +66,13 @@ user_zshenv:
     export ZDOTDIR=${HOME}/.config/zsh
     export HISTFILE=
 
+user_config_state: link
+
 user_config:
   - alacritty
   - emacs
   - fish
   - foot
-  - git
   - helix
   - kitty
   - nushell

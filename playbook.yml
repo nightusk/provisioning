@@ -1,6 +1,10 @@
 ---
 - name: Provisioning
   hosts: localhost
+  pre_tasks:
+    - name: Include vars
+      ansible.builtin.include_vars:
+        file: '{{ ansible_distribution }}.yml'
   roles:
     - {role: locale, tags: [locale]}
     - {role: package, tags: [package]}

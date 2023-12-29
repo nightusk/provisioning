@@ -24,14 +24,6 @@
     - vimrc
     - zshenv
 
-- name: Gitconfig
-  community.general.ini_file:
-    path: '{{ ansible_env.HOME }}/.gitconfig'
-    mode: '0644'
-    section: include
-    option: path
-    value: .config/git/config
-
 - name: Ensure $HOME/.config
   ansible.builtin.file:
     path: '{{ ansible_env.HOME }}/.config'
@@ -45,12 +37,3 @@
     state: link
   with_items:
     - '{{ user_config }}'
-
-- name: Update config
-  ansible.builtin.lineinfile:
-    path: '{{ role_path }}/defaults/main.yml'
-    line: '  - {{ item }}'
-    insertafter: 'user_config:'
-  with_lines:
-    - ls --almost-all '{{ ansible_env.HOME }}/.config'
-    - ls --almost-all '{{ role_path }}/files/config'

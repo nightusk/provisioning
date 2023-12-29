@@ -12,6 +12,7 @@
     create: true
     mode: '0644'
     line: '{{ item }}'
+    state: '{{ package_state }}'
   with_items:
     - '{{ lookup("vars", "package_" + kind) }}'
   become: true

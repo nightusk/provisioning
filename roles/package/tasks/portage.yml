@@ -11,6 +11,7 @@
   ansible.builtin.lineinfile:
     path: /etc/portage/make.conf
     line: '{{ item }}'
+    state: '{{ package_state }}'
   with_items:
     - '{{ package_make_conf }}'
   become: true
@@ -19,11 +20,13 @@
   ansible.builtin.lineinfile:
     path: /etc/portage/env/no-mold.conf
     line: 'LDFLAGS="-Wl,-O1 -Wl,--as-needed"'
+    state: '{{ package_state }}'
   become: true
 
 - name: Install
   ansible.builtin.package:
     name: '{{ item }}'
+    state: '{{ package_state }}'
   with_items:
     - '{{ package_list }}'
   become: true
