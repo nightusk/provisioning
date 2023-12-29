@@ -35,51 +35,11 @@ user_profile:
       esac
     done
 
-user_vimrc:
-  marker: '" {mark} ANSIBLE MANAGED BLOCK'
-  block: |
-    syntax enable
-    filetype plugin indent on
-
-    set runtimepath^=$HOME/.config/vim
-    set runtimepath+=$HOME/.local/share/vim
-    set runtimepath+=$HOME/.config/vim/after
-
-    set packpath^=$HOME/.local/share/vim,$HOME/.config/vim
-    set packpath+=$HOME/config/vim/after,$HOME/.local/share/vim/after
-
-    let g:netrw_home = "$HOME"."/.local/share/vim"
-    call mkdir($HOME."/.local/share/vim/spell", 'p')
-    set viewdir=$HOME/.local/share/vim/view | call mkdir(&viewdir, 'p')
-
-    set backupdir=$HOME/.cache/vim/backup | call mkdir(&backupdir, 'p')
-    set directory=$HOME/.cache/vim/swap | call mkdir(&directory, 'p')
-    set undodir=$HOME/.cache/vim/undo | call mkdir(&undodir, 'p')
-
-    set viminfofile=$HOME/.cache/vim/viminfo
-
-    let $MYVIMRC="$HOME/.config/vim/vimrc" | source $MYVIMRC
-
-user_zshenv:
-  marker: '# {mark} ANSIBLE MANAGED BLOCK'
-  block: |
-    export ZDOTDIR=${HOME}/.config/zsh
-    export HISTFILE=
-
 user_config_state: link
 
 user_config:
-  - alacritty
   - emacs
-  - fish
-  - foot
   - helix
-  - kitty
-  - nushell
   - nvim
   - sway
-  - tmux
-  - vim
   - wofi
-  - zellij
-  - zsh

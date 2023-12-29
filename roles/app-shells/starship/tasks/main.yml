@@ -1,0 +1,13 @@
+---
+- name: Install
+  ansible.builtin.include_role:
+    name: package
+  vars:
+    package_list: '{{ starship_packages }}'
+    package_state: '{{ starship_package_state }}'
+    package_make_conf: '{{ starship_make_conf }}'
+    package_accept_keywords: '{{ starship_package_accept_keywords }}'
+    package_env: '{{ starship_package_env }}'
+    package_license: '{{ starship_package_license }}'
+    package_mask: '{{ starship_package_mask }}'
+    package_use: '{{ starship_package_use }}'

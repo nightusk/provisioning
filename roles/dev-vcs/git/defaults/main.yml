@@ -3,7 +3,8 @@ git_packages:
   - git-delta
   - github-cli
 git_make_conf: []
-git_package_accept_keywords: []
+git_package_accept_keywords:
+  - '=dev-util/github-cli-2.32.1 ~amd64'
 git_package_env: []
 git_package_license: []
 git_package_mask: []

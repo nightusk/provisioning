@@ -1,0 +1,22 @@
+---
+- name: Install
+  ansible.builtin.include_role:
+    name: package
+  vars:
+    package_list: '{{ alacritty_packages }}'
+    package_state: '{{ alacritty_package_state }}'
+    package_make_conf: '{{ alacritty_make_conf }}'
+    package_accept_keywords: '{{ alacritty_package_accept_keywords }}'
+    package_env: '{{ alacritty_package_env }}'
+    package_license: '{{ alacritty_package_license }}'
+    package_mask: '{{ alacritty_package_mask }}'
+    package_use: '{{ alacritty_package_use }}'
+
+- name: Link Config
+  ansible.builtin.include_role:
+    name: user
+    tasks_from: config
+  vars:
+    user_config_state: '{{ alacritty_config_state }}'
+    user_config:
+      - alacritty

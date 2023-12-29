@@ -1,0 +1,13 @@
+---
+- name: Install
+  ansible.builtin.include_role:
+    name: package
+  vars:
+    package_list: '{{ dash_packages }}'
+    package_state: '{{ dash_package_state }}'
+    package_make_conf: '{{ dash_make_conf }}'
+    package_accept_keywords: '{{ dash_package_accept_keywords }}'
+    package_env: '{{ dash_package_env }}'
+    package_license: '{{ dash_package_license }}'
+    package_mask: '{{ dash_package_mask }}'
+    package_use: '{{ dash_package_use }}'

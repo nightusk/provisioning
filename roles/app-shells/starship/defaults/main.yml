@@ -1,0 +1,12 @@
+---
+starship_packages:
+  - starship
+starship_make_conf: []
+starship_package_accept_keywords:
+  - '=app-shells/starship-1.16.0 ~amd64'
+starship_package_env: []
+starship_package_license: []
+starship_package_mask: []
+starship_package_use: []
+starship_package_state: present
+starship_config_state: link

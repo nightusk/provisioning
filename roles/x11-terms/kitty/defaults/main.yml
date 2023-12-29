@@ -1,0 +1,13 @@
+---
+kitty_packages:
+  - kitty
+kitty_make_conf: []
+kitty_package_accept_keywords: []
+kitty_package_env: []
+kitty_package_license: []
+kitty_package_mask: []
+kitty_package_use:
+  - 'x11-terms/kitty -X'
+  - 'x11-terms/kitty wayland'
+kitty_package_state: present
+kitty_config_state: link

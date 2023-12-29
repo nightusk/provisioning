@@ -1,0 +1,11 @@
+---
+fish_packages:
+  - fish
+fish_make_conf: []
+fish_package_accept_keywords: []
+fish_package_env: []
+fish_package_license: []
+fish_package_mask: []
+fish_package_use: []
+fish_package_state: present
+fish_config_state: link

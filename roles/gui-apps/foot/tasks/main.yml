@@ -1,0 +1,22 @@
+---
+- name: Install
+  ansible.builtin.include_role:
+    name: package
+  vars:
+    package_list: '{{ foot_packages }}'
+    package_state: '{{ foot_package_state }}'
+    package_make_conf: '{{ foot_make_conf }}'
+    package_accept_keywords: '{{ foot_package_accept_keywords }}'
+    package_env: '{{ foot_package_env }}'
+    package_license: '{{ foot_package_license }}'
+    package_mask: '{{ foot_package_mask }}'
+    package_use: '{{ foot_package_use }}'
+
+- name: Link Config
+  ansible.builtin.include_role:
+    name: user
+    tasks_from: config
+  vars:
+    user_config_state: '{{ foot_config_state }}'
+    user_config:
+      - foot

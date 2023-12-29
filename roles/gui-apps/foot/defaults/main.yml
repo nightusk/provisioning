@@ -1,0 +1,11 @@
+---
+foot_packages:
+  - foot
+foot_make_conf: []
+foot_package_accept_keywords: []
+foot_package_env: []
+foot_package_license: []
+foot_package_mask: []
+foot_package_use: []
+foot_package_state: present
+foot_config_state: link

@@ -1,0 +1,22 @@
+---
+- name: Install
+  ansible.builtin.include_role:
+    name: package
+  vars:
+    package_list: '{{ kitty_packages }}'
+    package_state: '{{ kitty_package_state }}'
+    package_make_conf: '{{ kitty_make_conf }}'
+    package_accept_keywords: '{{ kitty_package_accept_keywords }}'
+    package_env: '{{ kitty_package_env }}'
+    package_license: '{{ kitty_package_license }}'
+    package_mask: '{{ kitty_package_mask }}'
+    package_use: '{{ kitty_package_use }}'
+
+- name: Link Config
+  ansible.builtin.include_role:
+    name: user
+    tasks_from: config
+  vars:
+    user_config_state: '{{ kitty_config_state }}'
+    user_config:
+      - kitty

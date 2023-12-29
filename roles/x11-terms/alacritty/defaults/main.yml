@@ -1,0 +1,13 @@
+---
+alacritty_packages:
+  - alacritty
+alacritty_make_conf: []
+alacritty_package_accept_keywords: []
+alacritty_package_env: []
+alacritty_package_license: []
+alacritty_package_mask: []
+alacritty_package_use:
+  - 'x11-terms/alacritty -X'
+  - 'x11-terms/alacritty wayland'
+alacritty_package_state: present
+alacritty_config_state: link

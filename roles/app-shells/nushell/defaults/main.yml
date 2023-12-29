@@ -1,0 +1,12 @@
+---
+nushell_packages:
+  - nushell
+nushell_make_conf: []
+nushell_package_accept_keywords:
+  - '=app-shells/nushell-0.83.1 ~amd64'
+nushell_package_env: []
+nushell_package_license: []
+nushell_package_mask: []
+nushell_package_use: []
+nushell_package_state: present
+nushell_config_state: link

@@ -21,7 +21,6 @@
   with_items:
     - bash_profile
     - profile
-    - vimrc
     - zshenv
 
 - name: Ensure $HOME/.config

@@ -1,0 +1,4 @@
+---
+dependencies:
+  - role: app-shells/dash
+  - role: app-shells/fish

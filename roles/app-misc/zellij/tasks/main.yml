@@ -1,0 +1,22 @@
+---
+- name: Install
+  ansible.builtin.include_role:
+    name: package
+  vars:
+    package_list: '{{ zellij_packages }}'
+    package_state: '{{ zellij_package_state }}'
+    package_make_conf: '{{ zellij_make_conf }}'
+    package_accept_keywords: '{{ zellij_package_accept_keywords }}'
+    package_env: '{{ zellij_package_env }}'
+    package_license: '{{ zellij_package_license }}'
+    package_mask: '{{ zellij_package_mask }}'
+    package_use: '{{ zellij_package_use }}'
+
+- name: Link Config
+  ansible.builtin.include_role:
+    name: user
+    tasks_from: config
+  vars:
+    user_config_state: '{{ zellij_config_state }}'
+    user_config:
+      - zellij

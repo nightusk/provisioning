@@ -1,0 +1,22 @@
+---
+- name: Install
+  ansible.builtin.include_role:
+    name: package
+  vars:
+    package_list: '{{ fish_packages }}'
+    package_state: '{{ fish_package_state }}'
+    package_make_conf: '{{ fish_make_conf }}'
+    package_accept_keywords: '{{ fish_package_accept_keywords }}'
+    package_env: '{{ fish_package_env }}'
+    package_license: '{{ fish_package_license }}'
+    package_mask: '{{ fish_package_mask }}'
+    package_use: '{{ fish_package_use }}'
+
+- name: Link Config
+  ansible.builtin.include_role:
+    name: user
+    tasks_from: config
+  vars:
+    user_config_state: '{{ fish_config_state }}'
+    user_config:
+      - fish

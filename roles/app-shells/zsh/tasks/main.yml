@@ -1,0 +1,31 @@
+---
+- name: Install
+  ansible.builtin.include_role:
+    name: package
+  vars:
+    package_list: '{{ zsh_packages }}'
+    package_state: '{{ zsh_package_state }}'
+    package_make_conf: '{{ zsh_make_conf }}'
+    package_accept_keywords: '{{ zsh_package_accept_keywords }}'
+    package_env: '{{ zsh_package_env }}'
+    package_license: '{{ zsh_package_license }}'
+    package_mask: '{{ zsh_package_mask }}'
+    package_use: '{{ zsh_package_use }}'
+
+- name: Zshenv
+  ansible.builtin.blockinfile:
+    path: '{{ ansible_env.HOME }}/.zshenv'
+    create: true
+    mode: '0644'
+    marker: '# {mark} ANSIBLE MANAGED BLOCK'
+    block: '{{ zsh_snippet }}'
+    state: '{{ zsh_package_state }}'
+
+- name: Link Config
+  ansible.builtin.include_role:
+    name: user
+    tasks_from: config
+  vars:
+    user_config_state: '{{ zsh_config_state }}'
+    user_config:
+      - zsh

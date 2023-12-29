@@ -1,0 +1,4 @@
+---
+dependencies:
+  - role: app-editors/vim
+  - role: app-shells/zsh

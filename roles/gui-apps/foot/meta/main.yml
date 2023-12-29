@@ -1,0 +1,4 @@
+---
+dependencies:
+  - role: app-misc/tmux
+  - role: app-shells/dash

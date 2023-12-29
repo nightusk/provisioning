@@ -1,0 +1,22 @@
+---
+- name: Install
+  ansible.builtin.include_role:
+    name: package
+  vars:
+    package_list: '{{ tmux_packages }}'
+    package_state: '{{ tmux_package_state }}'
+    package_make_conf: '{{ tmux_make_conf }}'
+    package_accept_keywords: '{{ tmux_package_accept_keywords }}'
+    package_env: '{{ tmux_package_env }}'
+    package_license: '{{ tmux_package_license }}'
+    package_mask: '{{ tmux_package_mask }}'
+    package_use: '{{ tmux_package_use }}'
+
+- name: Link Config
+  ansible.builtin.include_role:
+    name: user
+    tasks_from: config
+  vars:
+    user_config_state: '{{ tmux_config_state }}'
+    user_config:
+      - tmux

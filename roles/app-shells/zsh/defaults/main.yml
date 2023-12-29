@@ -1,0 +1,15 @@
+---
+zsh_packages:
+  - zsh
+zsh_make_conf: []
+zsh_package_accept_keywords: []
+zsh_package_env: []
+zsh_package_license: []
+zsh_package_mask: []
+zsh_package_use: []
+zsh_package_state: present
+zsh_config_state: link
+
+zsh_snippet: |
+  export ZDOTDIR=${HOME}/.config/zsh
+  export HISTFILE=

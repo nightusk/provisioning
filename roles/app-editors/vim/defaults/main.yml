@@ -1,0 +1,35 @@
+---
+vim_packages:
+  - vim
+vim_make_conf: []
+vim_package_accept_keywords: []
+vim_package_env: []
+vim_package_license: []
+vim_package_mask: []
+vim_package_use:
+  - 'app-editors/vim python'
+vim_package_state: present
+vim_config_state: link
+
+vim_snippet: |
+  syntax enable
+  filetype plugin indent on
+
+  set runtimepath^=$HOME/.config/vim
+  set runtimepath+=$HOME/.local/share/vim
+  set runtimepath+=$HOME/.config/vim/after
+
+  set packpath^=$HOME/.local/share/vim,$HOME/.config/vim
+  set packpath+=$HOME/config/vim/after,$HOME/.local/share/vim/after
+
+  let g:netrw_home = "$HOME"."/.local/share/vim"
+  call mkdir($HOME."/.local/share/vim/spell", 'p')
+  set viewdir=$HOME/.local/share/vim/view | call mkdir(&viewdir, 'p')
+
+  set backupdir=$HOME/.cache/vim/backup | call mkdir(&backupdir, 'p')
+  set directory=$HOME/.cache/vim/swap | call mkdir(&directory, 'p')
+  set undodir=$HOME/.cache/vim/undo | call mkdir(&undodir, 'p')
+
+  set viminfofile=$HOME/.cache/vim/viminfo
+
+  let $MYVIMRC="$HOME/.config/vim/vimrc" | source $MYVIMRC

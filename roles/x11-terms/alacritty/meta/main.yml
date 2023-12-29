@@ -1,0 +1,4 @@
+---
+dependencies:
+  - role: app-misc/zellij
+  - role: app-shells/dash

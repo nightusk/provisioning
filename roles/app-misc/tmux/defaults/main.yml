@@ -1,0 +1,11 @@
+---
+tmux_packages:
+  - tmux
+tmux_make_conf: []
+tmux_package_accept_keywords: []
+tmux_package_env: []
+tmux_package_license: []
+tmux_package_mask: []
+tmux_package_use: []
+tmux_package_state: present
+tmux_config_state: link

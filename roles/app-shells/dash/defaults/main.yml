@@ -1,0 +1,12 @@
+---
+dash_packages:
+  - dash
+dash_make_conf: []
+dash_package_accept_keywords: []
+dash_package_env: []
+dash_package_license: []
+dash_package_mask: []
+dash_package_use:
+  - 'app-shells/dash libedit'
+dash_package_state: present
+dash_config_state: link
