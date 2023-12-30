@@ -33,21 +33,16 @@
     :config
     (global-auto-revert-mode +1))
 #+end_src
-*** cus-start
-#+BEGIN_SRC emacs-lisp
-  (use-package cus-start
+*** custom
+#+begin_src emacs-lisp
+  (use-package custom
     :custom
     (menu-bar-mode nil)
     (scroll-bar-mode nil)
     (tool-bar-mode nil)
     :config
     (defalias 'yes-or-no-p 'y-or-n-p)
-    (define-key key-translation-map [?\C-h] [?\C-?]))
-#+END_SRC
-*** custom
-#+begin_src emacs-lisp
-  (use-package custom
-    :config
+    (define-key key-translation-map [?\C-h] [?\C-?])
     (when (>= emacs-major-version 28)
       (load-theme (if window-system 'modus-operandi 'modus-vivendi))))
   (use-package modus-themes :straight t
