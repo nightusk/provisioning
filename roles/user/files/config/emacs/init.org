@@ -171,6 +171,11 @@
     :config
     (which-key-mode +1))
 #+end_src
+*** zig-mode
+#+begin_src emacs-lisp
+  (use-package zig-mode :straight t)
+#+end_src
+
 * COMMENT Local Variables
 Local Variables:
 indent-tabs-mode: nil

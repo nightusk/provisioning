@@ -73,4 +73,5 @@ return {
     },
   }, -- }}}
   { "tpope/vim-unimpaired" },
+  { "ziglang/zig.vim" },
 }

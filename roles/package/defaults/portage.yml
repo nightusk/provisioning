@@ -18,11 +18,13 @@ package_make_conf:
 package_accept_keywords:
   - '=app-editors/emacs-29.1-r1 ~amd64'
   - '=app-editors/helix-23.05 ~amd64'
+  - '=app-eselect/eselect-zig-1-r1 ~amd64'
   - '=app-misc/zellij-0.37.2 ~amd64'
   - '=app-shells/nushell-0.83.1 ~amd64'
   - '=app-shells/powerline-2.7-r2 ~amd64'
   - '=app-shells/starship-1.16.0 ~amd64'
   - '=dev-lang/rust-bin-1.72.0 ~amd64'
+  - '=dev-lang/zig-bin-0.11.0-r1 ~amd64'
   - '=dev-util/github-cli-2.32.1 ~amd64'
   - '=dev-util/sccache-0.5.4 ~amd64'
   - '=gui-apps/tuigreet-0.8.0-r1 ~amd64'
@@ -48,6 +50,7 @@ package_use:
   - 'app-editors/emacs treesitter'
   - 'app-editors/vim python'
   - 'app-shells/dash libedit'
+  - 'dev-lang/rust-bin rust-analyzer'
   - 'gui-wm/sway grimshot'
   - 'gui-wm/sway tray'
   - 'gui-wm/sway wallpapers'
@@ -81,6 +84,7 @@ package_list:
   - app-shells/nushell
   - app-shells/starship
   - app-shells/zsh
+  - dev-lang/zig-bin
   - dev-util/ccache
   - dev-util/git-delta
   - dev-util/github-cli

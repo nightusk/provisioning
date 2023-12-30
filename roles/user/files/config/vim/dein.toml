@@ -194,3 +194,6 @@ on_event = [
 hook_add = '''
   imap <C-\> <Plug>(skkeleton-toggle)
 '''
+
+[[plugins]]
+repo = 'ziglang/zig.vim'
