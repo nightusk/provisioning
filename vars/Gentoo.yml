@@ -5,6 +5,9 @@ alacritty_packages:
 dash_packages:
   - app-shells/dash
 
+emacs_packages:
+  - app-editors/emacs
+
 foot_packages:
   - gui-apps/foot
 
@@ -15,8 +18,8 @@ git_packages:
 kitty_packages:
   - x11-terms/kitty
 
-nushell_package_accept_keywords:
-  - '=app-shells/nushell-0.83.1 ~amd64'
+neovim_packages:
+  - app-editors/neovim
 
 tmux_packages:
   - app-misc/tmux

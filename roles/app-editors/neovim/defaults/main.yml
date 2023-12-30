@@ -1,0 +1,11 @@
+---
+neovim_packages:
+  - neovim
+neovim_make_conf: []
+neovim_package_accept_keywords: []
+neovim_package_env: []
+neovim_package_license: []
+neovim_package_mask: []
+neovim_package_use: []
+neovim_package_state: present
+neovim_config_state: link

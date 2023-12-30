@@ -4,6 +4,7 @@
     file: portage_etc.yml
   with_items:
     - '{{ package_etc_files }}'
+  when: 'lookup("vars", "package_" + kind) | length > 0'
   loop_control:
     loop_var: kind
 

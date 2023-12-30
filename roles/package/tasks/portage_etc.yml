@@ -22,7 +22,6 @@
     path: '{{ role_path }}/defaults/portage.yml'
     line: "  - '{{ item }}'"
     insertafter: 'package_{{ kind }}:'
-  when: 'lookup("vars", "package_" + kind) | length > 0'
   with_lines:
     - >
       sed

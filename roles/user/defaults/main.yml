@@ -38,8 +38,6 @@ user_profile:
 user_config_state: link
 
 user_config:
-  - emacs
   - helix
-  - nvim
   - sway
   - wofi

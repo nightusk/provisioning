@@ -1,0 +1,17 @@
+---
+emacs_packages:
+  - emacs
+emacs_make_conf: []
+emacs_package_accept_keywords:
+  - '=app-editors/emacs-29.1-r1 ~amd64'
+emacs_package_env: []
+emacs_package_license: []
+emacs_package_mask: []
+emacs_package_use:
+  - 'app-editors/emacs -X'
+  - 'app-editors/emacs gtk'
+  - 'app-editors/emacs gui'
+  - 'app-editors/emacs sqlite'
+  - 'app-editors/emacs treesitter'
+emacs_package_state: present
+emacs_config_state: link

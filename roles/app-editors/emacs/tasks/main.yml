@@ -1,0 +1,22 @@
+---
+- name: Install
+  ansible.builtin.include_role:
+    name: package
+  vars:
+    package_list: '{{ emacs_packages }}'
+    package_state: '{{ emacs_package_state }}'
+    package_make_conf: '{{ emacs_make_conf }}'
+    package_accept_keywords: '{{ emacs_package_accept_keywords }}'
+    package_env: '{{ emacs_package_env }}'
+    package_license: '{{ emacs_package_license }}'
+    package_mask: '{{ emacs_package_mask }}'
+    package_use: '{{ emacs_package_use }}'
+
+- name: Link Config
+  ansible.builtin.include_role:
+    name: user
+    tasks_from: config
+  vars:
+    user_config_state: '{{ emacs_config_state }}'
+    user_config:
+      - emacs
