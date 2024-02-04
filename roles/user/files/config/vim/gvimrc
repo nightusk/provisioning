@@ -1,0 +1,5 @@
+" vim: set foldenable foldmethod=marker:
+"10 GUI {{{
+set guioptions-=m
+set guioptions-=T
+"}}}

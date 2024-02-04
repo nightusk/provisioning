@@ -1,56 +1,92 @@
+" vim: set foldenable foldmethod=marker:
+
+unlet! skip_defaults_vim
 source $VIMRUNTIME/defaults.vim
 
-" 2 moving around, searching and patterns
+" 1 important {{{
+set nocompatible
+"}}}
+" 2 moving around, searching and patterns {{{
+set autochdir
+set nowrapscan
 set incsearch
+set magic
 set ignorecase
 set smartcase
-" 4 displaying text
+"}}}
+" 3 tags {{{
+set tags=./tags,tags
+"}}}
+" 4 displaying text {{{
 set scrolloff=5
 set nowrap
 set list
-set listchars+=tab:>\ 
+set listchars+=tab:>-
 set listchars+=trail:-
-set listchars+=nbsp:+
-" 5 syntax, highlighting and spelling
-set background=dark
+set listchars+=eol:>
+set listchars+=nbsp:%
+set listchars+=extends:>
+set listchars+=precedes:<
+"}}}
+" 5 syntax, highlighting and spelling {{{
+set hlsearch
 set cursorline
-" 6 multiple windows
+"}}}
+" 6 multiple windows {{{
 set laststatus=2
 set hidden
-"11 messages and info
+"}}}
+" 7 multiple tab pages {{{
+"}}}
+" 8 terminal {{{
+"}}}
+" 9 using the mouse {{{
+"}}}
+"11 printing {{{
+"}}}
+"12 messages and info {{{
 set showcmd
-"13 editing text
-set undofile
-"18 reading and writing files
+set showmode
+set ruler
+set novisualbell
+set helplang=ja
+"}}}
+"13 selecting text {{{
+set clipboard=unnamed,autoselect
+"}}}
+"14 editing text {{{
+set noundofile
+set showmatch
+"}}}
+"15 tabs and indenting {{{
+"}}}
+"16 folding {{{
+"}}}
+"17 diff mode {{{
+"}}}
+"18 mapping {{{
+"}}}
+"19 reading and writing files {{{
+set nobackup
 set autoread
-"20 command line editing
-set wildmode=list:longest,full
+"}}}
+"20 the swap file {{{
+set noswapfile
+"}}}
+"21 command line editing {{{
 set wildmenu
+"}}}
+"22 executing external commands {{{
+"}}}
+"23 running make and jumping to errors (quickfix) {{{
+"}}}
+"24 language specific {{{
+"}}}
+"25 multi-byte characters {{{
+"}}}
+"26 various {{{
+"}}}
 
+"{{{
 let mapleader="\<space>"
-
-let $DATA = expand('~/.local/share')
-if !($DATA->isdirectory())
-  call mkdir($DATA, 'p')
-endif
-if &runtimepath !~# '/dein.vim'
-  let s:dir = 'dein.vim'->fnamemodify(':p')
-  if !(s:dir->isdirectory())
-    let s:dir = $DATA .. '/vim/repos/github.com/Shougo/dein.vim'
-    if !(s:dir->isdirectory())
-      execute '!git clone https://github.com/Shougo/dein.vim' s:dir
-    endif
-  endif
-  execute 'set runtimepath^=' .. s:dir->fnamemodify(':p')->substitute('[/\\]$', '', '')
-endif
-
-let s:dein_base = $DATA.'/vim/'
-let s:dein_src = $DATA.'/vim/repos/github.com/Shougo/dein.vim'
-execute 'set runtimepath+=' .. s:dein_src
-call dein#begin(s:dein_base)
-call dein#add(s:dein_src)
-call dein#load_toml('~/.config/vim/dein.toml', #{ lazy: 1 })
-call dein#end()
-if dein#check_install()
-  call dein#install()
-endif
+"}}}
