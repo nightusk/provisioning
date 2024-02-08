@@ -1,0 +1,19 @@
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+
+[[plugins]]
+repo = 'editorconfig/editorconfig-vim'
+
+[[plugins]]
+repo = 'tpope/vim-unimpaired'
+
+[[plugins]]
+repo = 'vim-denops/denops.vim'
+
+[[plugins]]
+repo = 'vim-skk/skkeleton'
+hook_add = '''
+  imap <C-j> <Plug>(skkeleton-toggle)
+  cmap <C-j> <Plug>(skkeleton-toggle)
+  tmap <C-j> <Plug>(skkeleton-toggle)
+'''

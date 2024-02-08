@@ -1,5 +1,50 @@
 " vim: set foldenable foldmethod=marker:
 
+let $VIMDIR = expand('<script>:h')
+
+augroup MyAutoCmd
+  autocmd!
+augroup END
+
+" dpp.vim {{{
+const s:dpp_base = expand('$HOME/.local/share/vim/dpp/')
+const s:dpp_src = s:dpp_base .. 'repos/github.com/Shougo/dpp.vim'
+if !s:dpp_src->isdirectory()
+  execute '!git clone https://github.com/Shougo/dpp.vim.git ' .. s:dpp_src
+endif
+execute 'set runtimepath^=' .. s:dpp_src
+
+if dpp#min#load_state(s:dpp_base)
+  for s:plugin in [
+    \ 'Shougo/dpp-ext-installer',
+    \ 'Shougo/dpp-ext-lazy',
+    \ 'Shougo/dpp-ext-toml',
+    \ 'Shougo/dpp-protocol-git',
+    \ 'vim-denops/denops.vim',
+    \ ]
+    let s:plugin_dir = s:dpp_base .. 'repos/github.com/' .. s:plugin
+    if !s:plugin_dir->isdirectory()
+      execute '!git clone https://github.com/' .. s:plugin .. '.git ' .. s:plugin_dir
+    endif
+    execute 'set runtimepath^=' .. s:plugin_dir
+  endfor
+
+  autocmd MyAutoCmd User DenopsReady
+    \ : echohl WarningMsg
+    \ | echomsg 'dpp make_state() is failed'
+    \ | echohl NONE
+    \ | call dpp#make_state(s:dpp_base, expand('<script>:h') .. '/dpp/config.ts')
+else
+  autocmd MyAutoCmd BufWritePost vimrc,*.vim,*.toml,*.ts
+    \ call dpp#check_files()
+endif
+
+autocmd MyAutoCmd User Dpp:makeStatePost
+  \ : echohl WarningMsg
+  \ | echomsg 'dpp make_state() is done'
+  \ | echohl NONE
+"}}}
+
 unlet! skip_defaults_vim
 source $VIMRUNTIME/defaults.vim
 
@@ -87,6 +132,7 @@ set wildmenu
 "26 various {{{
 "}}}
 
-"{{{
+" keymap {{{
 let mapleader="\<space>"
-"}}}
+noremap <leader>o :Ddu file_rec<CR>
+" }}}
