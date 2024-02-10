@@ -3,6 +3,7 @@ call ddc#custom#patch_global(#{
   \   ui: 'native',
   \   sources: [
   \     'around',
+  \     'lsp',
   \     'skkeleton',
   \   ],
   \   sourceOptions: #{
@@ -17,6 +18,11 @@ call ddc#custom#patch_global(#{
   \     arround: #{
   \       mark: 'A',
   \     },
+  \     lsp: #{
+  \       mark: 'L',
+  \       forceCompletionPattern: '\.\w*|:\w*|->\w*',
+  \       sorters: ['sorter_lsp-kind'],
+  \     },
   \     skkeleton: #{
   \       mark: 'J',
   \       matchers: [],
@@ -24,6 +30,14 @@ call ddc#custom#patch_global(#{
   \       converters: [],
   \       isVolatile: v:true,
   \       minAutoCompleteLength: 1,
+  \     },
+  \   },
+  \   sourceParams: #{
+  \     lsp: #{
+  \       snippetEngine: denops#callback#register({
+  \         body -> vsnip#anonymous(body)
+  \       }),
+  \       lspEngine: "vim-lsp",
   \     },
   \   },
   \ })

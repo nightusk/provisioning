@@ -7,6 +7,9 @@ hooks_file = '$VIMDIR/ddc/hooks.vim'
 repo = 'Shougo/ddc-matcher_head'
 on_source = 'ddc.vim'
 
+[[plugins]]
+repo = 'Shougo/ddc-source-lsp'
+on_source = 'ddc.vim'
 
 [[plugins]]
 repo = 'Shougo/ddc-source-around'
@@ -18,4 +21,8 @@ on_source = 'ddc.vim'
 
 [[plugins]]
 repo = 'Shougo/ddc-ui-native'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'uga-rosa/ddc-source-vsnip'
 on_source = 'ddc.vim'

@@ -5,6 +5,15 @@ repo = 'airblade/vim-gitgutter'
 repo = 'editorconfig/editorconfig-vim'
 
 [[plugins]]
+repo = 'hrsh7th/vim-vsnip'
+
+[[plugins]]
+repo = 'mattn/vim-lsp-settings'
+
+[[plugins]]
+repo = 'prabirshrestha/vim-lsp'
+
+[[plugins]]
 repo = 'tpope/vim-unimpaired'
 
 [[plugins]]

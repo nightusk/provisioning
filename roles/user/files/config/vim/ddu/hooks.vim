@@ -35,6 +35,16 @@ call ddu#custom#patch_global(#{
   \       matchers: ['matcher_substring'],
   \     },
   \   },
+  \   sourceParams: #{
+  \     rg: #{
+  \       args: [
+  \         '--column',
+  \         '--no-heading',
+  \         '--color',
+  \         'never',
+  \       ],
+  \     },
+  \   },
   \   kindOptions: #{
   \     file: #{
   \       defaultAction: 'open',

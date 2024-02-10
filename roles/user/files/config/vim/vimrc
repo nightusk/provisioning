@@ -134,5 +134,7 @@ set wildmenu
 
 " keymap {{{
 let mapleader="\<space>"
+noremap <leader>b :Ddu buffer<CR>
+noremap <leader>g :DduRg<CR>
 noremap <leader>o :Ddu file_rec<CR>
 " }}}
